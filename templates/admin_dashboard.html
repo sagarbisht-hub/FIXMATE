@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dashboard">
+    <nav class="dashboard-nav">
+        <div class="logo"><i class="fas fa-tools"></i> FixMate AI</div>
+        <div class="nav-right">
+            <span>Admin Panel</span>
+            <a href="{% url 'logout' %}" class="btn-logout">Logout</a>
+        </div>
+    </nav>
+    
+    <div class="dashboard-content">
+        <div class="dashboard-header">
+            <div>
+                <h2>Platform Overview</h2>
+                <p>Intelligent monitoring of FixMate AI ecosystem</p>
+            </div>
+            <button class="btn-outline">
+                <i class="fas fa-file-export"></i> Download Report
+            </button>
+        </div>
+        
+        <div class="stats-grid-admin">
+            <div class="stat-card-admin">
+                <div class="stat-icon green">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <p class="label">Total Success Rate</p>
+                <h3>94.2%</h3>
+                <span class="trend positive">+2.1%</span>
+            </div>
+            <div class="stat-card-admin">
+                <div class="stat-icon blue">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <p class="label">Fairness Index</p>
+                <h3>88/100</h3>
+                <span class="trend positive">+5</span>
+            </div>
+            <div class="stat-card-admin">
+                <div class="stat-icon purple">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <p class="label">Avg Matching Time</p>
+                <h3>4.2m</h3>
+                <span class="trend positive">-15s</span>
+            </div>
+            <div class="stat-card-admin">
+                <div class="stat-icon indigo">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <p class="label">Trust Confidence</p>
+                <h3>91%</h3>
+                <span class="trend">Stable</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h3>Worker Performance Monitoring</h3>
+                <div class="badges">
+                    <span class="badge-success">98% High Confidence</span>
+                    <span class="badge-info">AI Audited</span>
+                </div>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Worker</th>
+                            <th>Expertise</th>
+                            <th>Reliability</th>
+                            <th>Fairness Multiplier</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for worker in workers %}
+                        <tr>
+                            <td>
+                                <div class="worker-cell">
+                                    <img src="{{ worker.avatar }}" alt="{{ worker.user.first_name }}">
+                                    <div>
+                                        <p class="name">{{ worker.user.first_name }} {{ worker.user.last_name }}</p>
+                                        <p class="email">{{ worker.user.email }}</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="badge">{{ worker.skills }}</span></td>
+                            <td>
+                                <div class="progress-bar-small">
+                                    <div class="progress" style="width: {{ worker.reliability_score }}%"></div>
+                                </div>
+                                <span class="small-text">{{ worker.reliability_score }}%</span>
+                            </td>
+                            <td>
+                                {% if worker.is_new %}
+                                <span class="multiplier active">1.5x (Boost Active)</span>
+                                {% else %}
+                                <span class="multiplier">1.0x (Standard)</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <span class="status-active">
+                                    <span class="pulse-dot"></span> Active
+                                </span>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

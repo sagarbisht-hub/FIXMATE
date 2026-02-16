@@ -1,0 +1,219 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="landing-page">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-tools"></i>
+                <span>FixMate AI</span>
+            </div>
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#how-it-works">How it Works</a>
+                <a href="{% url 'help' %}">Help</a>
+                <a href="{% url 'report_issue' %}">Report Issue</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="{% url 'login' %}" class="btn-signin">Sign In</a>
+                <a href="{% url 'signup' %}" class="btn-primary">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>The Intelligent Hub for<br><span>Home & Professional Services.</span></h1>
+        <p>FixMate AI is more than a marketplace. We use advanced reasoning to ensure fair opportunities for workers and guaranteed success for clients.</p>
+        <div class="hero-buttons">
+            <a href="{% url 'signup' %}" class="btn-large">Join the Marketplace</a>
+            <a href="#services" class="btn-outline">Browse Professionals</a>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-box">
+                <i class="fas fa-bolt"></i>
+                <p class="stat-label">Instant Matches</p>
+                <p class="stat-value">< 2 mins</p>
+            </div>
+            <div class="stat-box">
+                <i class="fas fa-shield-alt"></i>
+                <p class="stat-label">Trust Score</p>
+                <p class="stat-value">99.2%</p>
+            </div>
+            <div class="stat-box">
+                <i class="fas fa-balance-scale"></i>
+                <p class="stat-label">Fairness Boost</p>
+                <p class="stat-value">Active</p>
+            </div>
+            <div class="stat-box">
+                <i class="fas fa-chart-pie"></i>
+                <p class="stat-label">Fair Pricing</p>
+                <p class="stat-value">Dynamic</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2>Service Categories</h2>
+        <p class="section-desc">Our specialized AI matching engine covers a wide range of essential services.</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-tint"></i>
+                <h3>Plumbing</h3>
+                <ul>
+                    <li>Emergency Leaks</li>
+                    <li>Pipe Fitting</li>
+                    <li>Drain Cleaning</li>
+                    <li>Water Heaters</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Electrical</h3>
+                <ul>
+                    <li>Wiring & Outlets</li>
+                    <li>Smart Home Setup</li>
+                    <li>Panel Upgrades</li>
+                    <li>Safety Audits</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-hammer"></i>
+                <h3>Carpentry</h3>
+                <ul>
+                    <li>Furniture Repair</li>
+                    <li>Custom Cabinets</li>
+                    <li>Door Installation</li>
+                    <li>Deck Building</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-broom"></i>
+                <h3>Cleaning</h3>
+                <ul>
+                    <li>Deep Cleaning</li>
+                    <li>Office Spaces</li>
+                    <li>Post-Construction</li>
+                    <li>Move In/Out</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-snowflake"></i>
+                <h3>HVAC</h3>
+                <ul>
+                    <li>AC Repair</li>
+                    <li>Furnace Service</li>
+                    <li>Duct Cleaning</li>
+                    <li>Installation</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-paint-roller"></i>
+                <h3>Painting</h3>
+                <ul>
+                    <li>Interior Painting</li>
+                    <li>Exterior Painting</li>
+                    <li>Cabinet Refinishing</li>
+                    <li>Wallpaper Removal</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-leaf"></i>
+                <h3>Landscaping</h3>
+                <ul>
+                    <li>Lawn Maintenance</li>
+                    <li>Tree Trimming</li>
+                    <li>Garden Design</li>
+                    <li>Irrigation Systems</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-wrench"></i>
+                <h3>Appliance Repair</h3>
+                <ul>
+                    <li>Refrigerator Repair</li>
+                    <li>Washer/Dryer Fix</li>
+                    <li>Oven Service</li>
+                    <li>Dishwasher Repair</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section id="how-it-works" class="how-it-works">
+        <h2>How FixMate AI Works</h2>
+        <p class="section-desc">Get matched with the perfect professional in three simple steps</p>
+        
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <i class="fas fa-edit"></i>
+                <h3>Describe Your Need</h3>
+                <p>Tell us what you need fixed or done. Upload photos or videos for better accuracy.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <i class="fas fa-robot"></i>
+                <h3>AI Matches You</h3>
+                <p>Our intelligent system analyzes your request and matches you with the best professional.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <i class="fas fa-check-circle"></i>
+                <h3>Get It Done</h3>
+                <p>Track progress in real-time and enjoy guaranteed quality work with fair pricing.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <i class="fas fa-tools"></i>
+                    <span>FixMate AI</span>
+                </div>
+                <p>An intelligent service marketplace engine dedicated to maximizing job success and ensuring fair opportunities for all.</p>
+            </div>
+            <div class="footer-links">
+                <div>
+                    <h4>Services</h4>
+                    <a href="#services">Plumbing</a>
+                    <a href="#services">Electrical</a>
+                    <a href="#services">Carpentry</a>
+                    <a href="#services">Cleaning</a>
+                    <a href="#services">HVAC</a>
+                    <a href="#services">Painting</a>
+                    <a href="#services">Landscaping</a>
+                    <a href="#services">Appliance Repair</a>
+                </div>
+                <div>
+                    <h4>Platform</h4>
+                    <a href="{% url 'signup' %}">Get Started</a>
+                    <a href="#how-it-works">How it Works</a>
+                    <a href="{% url 'help' %}">Help Center</a>
+                    <a href="{% url 'report_issue' %}">Report Issue</a>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <a href="#about">About Us</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#careers">Careers</a>
+                    <a href="#blog">Blog</a>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                    <a href="#safety">Safety Guidelines</a>
+                    <a href="#trust">Trust & Safety</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 FixMate AI. All rights reserved. Powered by intelligent matching technology.</p>
+        </div>
+    </footer>
+</div>
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dashboard">
+    <nav class="dashboard-nav">
+        <div class="logo"><i class="fas fa-tools"></i> FixMate AI</div>
+        <div class="nav-right">
+            <span>{{ worker.user.first_name }}</span>
+            <a href="{% url 'logout' %}" class="btn-logout">Logout</a>
+        </div>
+    </nav>
+    
+    <div class="dashboard-content">
+        <div class="dashboard-header">
+            <div>
+                <h2>Hello, {{ worker.user.first_name }}</h2>
+                <p>Your reliability score is currently <span class="highlight">{{ worker.reliability_score }}%</span></p>
+            </div>
+            <div class="stats-row">
+                <div class="stat-card">
+                    <p class="label">Total Earnings</p>
+                    <p class="value green">${{ worker.earnings }}</p>
+                </div>
+                <div class="stat-card primary">
+                    <p class="label">Jobs Today</p>
+                    <p class="value">{{ jobs|length }}</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="dashboard-grid">
+            <div class="main-content">
+                <div class="card">
+                    <h3><i class="fas fa-chart-line"></i> Earnings Overview</h3>
+                    <div class="chart-placeholder">
+                        <p>Weekly earnings: ${{ worker.earnings }}</p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Current Assignments</h3>
+                        <a href="#">View History</a>
+                    </div>
+                    {% for job in jobs %}
+                    <div class="assignment-item">
+                        <div class="assignment-info">
+                            <div class="icon">{{ job.category|slice:":1" }}</div>
+                            <div>
+                                <p class="title">{{ job.title }}</p>
+                                <p class="meta">{{ job.location }} • {{ job.urgency|upper }}</p>
+                            </div>
+                        </div>
+                        <div class="assignment-status">
+                            <p class="price">${{ job.price }}</p>
+                            <span class="badge-success">In Progress</span>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="empty-state">
+                        <i class="fas fa-search"></i>
+                        <p>No active jobs assigned yet.</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <div class="skill-card">
+                    <h3><i class="fas fa-graduation-cap"></i> Skill Recommender</h3>
+                    <p>Our AI detected potential growth areas based on local demand.</p>
+                    <div class="skill-item">
+                        <p class="skill-name">Smart Leak Detection</p>
+                        <p class="skill-desc">Demand in Downtown is up 40% for this skill.</p>
+                        <button class="btn-small">Enroll in Training</button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Trust Insights</h3>
+                    <div class="trust-metrics">
+                        <div class="metric">
+                            <div class="metric-header">
+                                <span>Punctuality</span>
+                                <span class="value">99%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 99%"></div>
+                            </div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-header">
+                                <span>Completion Rate</span>
+                                <span class="value">96%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 96%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
